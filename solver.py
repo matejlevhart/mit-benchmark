@@ -22,9 +22,9 @@ T_left = fd.Constant(0.5)
 T_right = fd.Constant(-0.5)
 e_y = fd.Constant((0, 1))
 t = 0.0
-t_end = 140.0
+t_end = 180.0
 dt = 0.1
-t_measure = 60.0
+t_measure = 100.0
 
 
 
@@ -191,7 +191,6 @@ print(f"Nu relative error                  = {abs(Nu_avg - Nu_goal)/Nu_goal:.4f}
 # --- Plot: temperature ---
 plt.figure()
 plt.plot(Ts, label="T at point 1")
-plt.plot(T_deviation, label="deviation of T at point 1 from average")
 plt.axhline(T_goal, color="k", linestyle="--", label=f"T_goal = {T_goal}")
 plt.xlabel("time step (after t_measure)")
 plt.ylabel("temperature at point-1")
@@ -209,8 +208,7 @@ plt.savefig("velocity_magnitude_at_point1.pdf", bbox_inches='tight')
  
 # --- Plot: Nusselt numbers ---
 plt.figure()
-plt.plot(Nu_hot,  label="Nu  hot wall (left,  tag 4)")
-plt.plot(Nu_cold, label="Nu cold wall (right, tag 2)")
+plt.plot(Nu_hot,  label="Nusselt number")
 plt.axhline(Nu_goal, color="k", linestyle="--", label=f"Nu goal = {Nu_goal}")
 plt.xlabel("time step (after t_measure)")
 plt.ylabel("Nusselt number")
